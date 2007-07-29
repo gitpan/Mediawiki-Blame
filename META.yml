@@ -1,0 +1,39 @@
+---
+name: Mediawiki-Blame
+version: 0.0.1
+author:
+  - 'Lars Dɪᴇᴄᴋᴏᴡ  C<< <daxim@cpan.org> >>'
+abstract: see who is responsible for each line of page content
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  Algorithm::Annotate: 0
+  Carp: 0
+  Class::Spiffy: 0
+  DateTime: 0
+  DateTime::Format::ISO8601: 0
+  LWPx::ParanoidAgent: 0
+  Params::Validate: 0
+  Perl::Version: 0
+  Readonly: 0
+  Regexp::Common: 0
+  XML::Twig: 0
+build_requires:
+  File::Spec::Functions: 0
+  Test::Exception: 0
+  Test::More: 0.42
+provides:
+  Mediawiki::Blame:
+    file: lib/Mediawiki/Blame.pm
+    version: 0.0.1
+  Mediawiki::Blame::Line:
+    file: lib/Mediawiki/Blame/Line.pm
+    version: 0.0.1
+  Mediawiki::Blame::Revision:
+    file: lib/Mediawiki/Blame/Revision.pm
+    version: 0.0.1
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.3.html
+  version: 1.3
