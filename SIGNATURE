@@ -15,11 +15,11 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 dcf8653259892f594ee0d0928d282368bdf4952a Build.PL
-SHA1 53f59f5bfcac7cea17e949207a214364723dd976 Changes
+SHA1 bc574e237d443f47b6ae210e1c73556a2eca1dd3 Changes
 SHA1 32cc55a3369b111689338a7ccfcb6c85b6ba0dbb MANIFEST
-SHA1 f6d650393bdd57925e6d6e35b57c9632093166da META.yml
-SHA1 435d64eb371960b6a88b9cd6fe65608958b8878e Makefile.PL
-SHA1 f64ef45b41129e76bf762a4eab0c82256739065c README
+SHA1 ac7ef4e4a3eb1832dd5d44b1039275b09ae9db14 META.yml
+SHA1 f7fcd41991e268b9498039b766bcc4a1866f05fa Makefile.PL
+SHA1 3c5498556785cbf92adc5106de9ddf35e5fa34b0 README
 SHA1 ad18442c2a918cd194d1f57b03d83be76f974f25 examples/mb.pl
 SHA1 603bb9de29fb8cba7f13409c546750972eff645d inc/Module/AutoInstall.pm
 SHA1 78edb89a439463e44c33a72bbee84c54d0dc8aaf inc/Module/Install.pm
@@ -33,11 +33,11 @@ SHA1 2054450e1e9c1dd8056362bf4a64ae70d5d71476 inc/Module/Install/Makefile.pm
 SHA1 5d6189b2cad15cf9932a28faafd55130c8247e83 inc/Module/Install/Metadata.pm
 SHA1 02af973fae2ac3531fa6b704574b2b8cb2a08148 inc/Module/Install/Win32.pm
 SHA1 3a2eab96e91cca8d99938cda7791759ae9d97b3a inc/Module/Install/WriteAll.pm
-SHA1 90bb73e9a91871b485a7ee8350c3e2adade01e37 lib/Mediawiki/Blame.pm
-SHA1 5a59d883457ac9c5a080addc78f768505763dbb1 lib/Mediawiki/Blame/Line.pm
-SHA1 7fe35c07e6f47a49b3cd2d1559fa5541de7f40cc lib/Mediawiki/Blame/Revision.pm
+SHA1 ccd30c25de1e6290600c283a3e39f470aa70a5b3 lib/Mediawiki/Blame.pm
+SHA1 3f77474d9f9a271c4b520eb339a3468875f06f3e lib/Mediawiki/Blame/Line.pm
+SHA1 e8c66cb9fb4ff448722383f0dad460f8f6c8ba85 lib/Mediawiki/Blame/Revision.pm
 SHA1 c62ad397e3ca52154b689193f2da9c98e86f88b8 t/00.load.t
-SHA1 9ec30a1ce2b7f2a345634447ff3dd6938c8fffc7 t/01.new.t
+SHA1 a015708eaf017def26e2139982f9ee4a7d7644d7 t/01.new.t
 SHA1 58ac02c8e3fecd14dbdacfc4baf39232a8f24ceb t/02.public_interface.t
 SHA1 d88cf0be6ea01061783cbca7de0eac94acce1752 t/perlcritic.t
 SHA1 8f41ce34ad89e183cc7e31d1e1b7e69bb4679d00 t/pod-coverage.t
@@ -45,7 +45,7 @@ SHA1 7fe41e93962e06623109660b585da4e471c4a67e t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.5 (GNU/Linux)
 
-iD8DBQFGrP5SFtlTdOX00HoRAsK6AJ9fHfJtNQ3HpBaclULTFq9YO96dcwCfRSQJ
-S8mIFJdQrMUgoN6xh9yHU5Q=
-=i0W8
+iD8DBQFGsIRXFtlTdOX00HoRAknRAJ9PzeP4++4N8xHa9HxHDYA/uHuwCQCcCVKT
+4U+m32ZCjofzWGEflGpGTHQ=
+=7DuY
 -----END PGP SIGNATURE-----

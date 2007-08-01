@@ -1,6 +1,6 @@
 package Mediawiki::Blame;
-# $Revision: 6 $
-# $Date: 2007-07-29 22:51:49 +0200 (So, 29 Jul 2007) $
+# $Revision: 8 $
+# $Date: 2007-08-01 15:01:36 +0200 (Mi, 01 Aug 2007) $
 use 5.008;
 use utf8;
 use strict;
@@ -10,11 +10,11 @@ use Carp qw(croak);
 use Class::Spiffy qw(-base field const);
 use DateTime qw();
 use DateTime::Format::ISO8601 qw();
-use LWPx::ParanoidAgent qw();
+use LWP::UserAgent qw();
 use Mediawiki::Blame::Revision qw();
 use Mediawiki::Blame::Line qw();
 use Params::Validate qw(validate_with SCALAR);
-use Perl::Version qw(); our $VERSION = Perl::Version->new('0.0.1')->stringify;
+use Perl::Version qw(); our $VERSION = Perl::Version->new('0.0.2')->stringify;
 use Regexp::Common qw(number URI);
 use Readonly qw(Readonly);
 use XML::Twig qw();
@@ -24,6 +24,7 @@ field 'page';
 field 'ua_timeout';
 field '_revisions';     # hashref whose keys are r_ids and values are hashrefs
 field '_initial';       # r_id of the initial revision
+field '_lwp';           # LWP instance
 
 sub new {
     my $class = shift;
@@ -50,6 +51,25 @@ sub new {
 
     $self->export($P{export});
     $self->page($P{page});
+
+    {
+        my $lwp_name;
+        eval q{
+            use LWPx::ParanoidAgent qw();
+        };
+        if ($@) {
+            $lwp_name = 'LWP::UserAgent';
+        } else {
+            $lwp_name = 'LWPx::ParanoidAgent';
+        };
+
+        $self->_lwp($lwp_name->new);
+        $self->_lwp->agent(
+            "Mediawiki::Blame/$VERSION (http://search.cpan.org/dist/Mediawiki-Blame/)"
+        );
+        push @{ $self->_lwp->requests_redirectable }, 'POST';
+    };
+
     $self->ua_timeout(30);  # seconds
     $self->_revisions({});
 
@@ -249,12 +269,9 @@ sub _post {
     my $self        = shift;
     my $post_params = shift; # hashref
 
-    my $lwp = LWPx::ParanoidAgent->new;
-    $lwp->agent("Mediawiki::Blame/$VERSION (http://search.cpan.org/dist/Mediawiki-Blame/)");
-    $lwp->timeout($self->ua_timeout);
-    push @{ $lwp->requests_redirectable }, 'POST';
+    $self->_lwp->timeout($self->ua_timeout);
 
-    my $response = $lwp->post($self->export, $post_params);
+    my $response = $self->_lwp->post($self->export, $post_params);
     if (not $response->is_success) {
         croak 'POST request to ' . $self->export . ' failed: '
           . $response->status_line;
@@ -349,7 +366,7 @@ Mediawiki::Blame - see who is responsible for each line of page content
 
 =head1 VERSION
 
-This document describes Mediawiki::Blame version 0.0.1
+This document describes Mediawiki::Blame version 0.0.2
 
 
 =head1 SYNOPSIS
@@ -375,7 +392,7 @@ This module does the work for you by using a dump of the revision history and
 shows for each line of a Mediawiki page source who edited it last.
 
 
-=head1 INTERFACE 
+=head1 INTERFACE
 
 =over
 
@@ -466,6 +483,11 @@ The server returned broken XML that the parser could not understand.
 Most likely, it did not return XML at all, but something different.
 
 =item C<< POST request to %s failed: %s >>
+
+Various things can go wrong during a HTTP request: DNS lookup failures,
+hosts that do not accept connections, Not Found status messages (check
+the URL for mistakes or typos) and various other HTTP failures beyond
+your control. If you get a read timeout, increase the L</"ua_timeout">.
 
 =back
 

@@ -3,3 +3,6 @@ Revision history for Mediawiki-Blame
 0.0.1  2007-07-29
        Initial release.
 
+0.0.2  2007-08-01
+       Made LWPx::ParanoidAgent an optional feature.
+       Amended diagnostics in the docs.

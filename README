@@ -1,4 +1,4 @@
-Mediawiki-Blame version 0.0.1
+Mediawiki-Blame version 0.0.2
 
 In Mediawiki, it is really easy to see who was responsible for a certain edit.
 But what if you want to know who is responsible for a piece of content? That
@@ -49,22 +49,25 @@ Carp
 Class::Spiffy
 DateTime
 DateTime::Format::ISO8601
-LWPx::ParanoidAgent
+LWP::UserAgent
 Params::Validate
 Perl::Version
 Regexp::Common
 Readonly
 XML::Twig
 
+* optional:
+LWPx::ParanoidAgent
+
 * For testing, everything above and:
 Test::More
 Test::Exception
-
+Test::Without::Module
 
 WHAT'S NEW
 
-0.0.1  2007-07-29
-       Initial release.
+0.0.2  2007-08-01
+       Made LWPx::ParanoidAgent an optional feature.
 
 
 COPYRIGHT AND LICENCE
