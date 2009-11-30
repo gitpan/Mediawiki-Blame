@@ -1,12 +1,10 @@
 package Mediawiki::Blame::Revision;
-# $Revision: 8 $
-# $Date: 2007-08-01 15:01:36 +0200 (Mi, 01 Aug 2007) $
 use 5.008;
 use utf8;
 use strict;
 use warnings;
 use Class::Spiffy qw(-base field);
-use Perl::Version qw(); our $VERSION = Perl::Version->new('0.0.2')->stringify;
+our $VERSION = '0.0.3';
 
 my @field_names = qw(r_id timestamp contributor text);
 for my $field_name (@field_names) {
@@ -30,13 +28,15 @@ sub _new {
 
 __END__
 
+=encoding UTF-8
+
 =head1 NAME
 
 Mediawiki::Blame::Revision - Mediawiki revision class
 
 =head1 VERSION
 
-This document describes Mediawiki::Blame::Revision version 0.0.2
+This document describes Mediawiki::Blame::Revision version 0.0.3
 
 =head1 SYNOPSIS
 
@@ -76,5 +76,3 @@ Returns an arrayref of lines submitted for the revision. This is the whole text
 of the revision, not the difference to the previous one.
 
 =back
-
-=encoding utf8

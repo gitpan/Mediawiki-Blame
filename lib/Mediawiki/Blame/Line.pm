@@ -1,12 +1,10 @@
 package Mediawiki::Blame::Line;
-# $Revision: 8 $
-# $Date: 2007-08-01 15:01:36 +0200 (Mi, 01 Aug 2007) $
 use 5.008;
 use utf8;
 use strict;
 use warnings;
 use Class::Spiffy qw(-base field);
-use Perl::Version qw(); our $VERSION = Perl::Version->new('0.0.2')->stringify;
+our $VERSION = '0.0.3';
 
 my @field_names = qw(r_id timestamp contributor text);
 for my $field_name (@field_names) {
@@ -30,13 +28,15 @@ sub _new {
 
 __END__
 
+=encoding UTF-8
+
 =head1 NAME
 
 Mediawiki::Blame::Line - Revision line class
 
 =head1 VERSION
 
-This document describes Mediawiki::Blame::Line version 0.0.2
+This document describes Mediawiki::Blame::Line version 0.0.3
 
 =head1 SYNOPSIS
 
@@ -84,5 +84,3 @@ Returns the text of the line. This is source text with Mediawiki markup, not in
 HTML.
 
 =back
-
-=encoding utf8

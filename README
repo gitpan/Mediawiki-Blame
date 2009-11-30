@@ -1,4 +1,8 @@
-Mediawiki-Blame version 0.0.2
+=encoding UTF-8
+
+Mediawiki-Blame version 0.0.3 is Copyright © 2007-2009, Lars Dɪᴇᴄᴋᴏᴡ
+
+=head1 DESCRIPTION
 
 In Mediawiki, it is really easy to see who was responsible for a certain edit.
 But what if you want to know who is responsible for a piece of content? That
@@ -8,71 +12,81 @@ This module does the work for you by using a dump of the revision history and
 shows for each line of a Mediawiki page source who edited it last.
 
 
-INSTALLATION
+=head1 INSTALLATION
 
 To install system-wide:
 
-  perl Build.PL
-  ./Build
-  ./Build test
-  sudo ./Build install
+  perl Makefile.PL
+  make
+  make test
+  sudo make install
 
 To install in a private directory:
 
-  perl Build.PL --install_base ~/perl
-  ./Build
-  ./Build test
-  ./Build install
+  perl Makefile.PL INSTALL_BASE=~/perl
+  make
+  make test
+  make install
 
-Do not forget to add $HOME/perl/lib/perl5 to your @INC, see perldoc perlfaq8
-"How do I add a directory to my include path (@INC) at runtime?".
+Do not forget to add F<$HOME/perl/lib/perl5> to your C<@INC>, see
+L<perlfaq8/"How do I add a directory to my include path (@INC) at runtime?">.
 
 
-TESTING
+=head1 TESTING
 
 Without special preparation, some tests are skipped.
 
-There are some checks provided through Test::Pod::Coverage and
-Test::Pod if they can be loaded.
+There are some checks provided through L<Test::Pod::Coverage> and
+L<Test::Pod> if they can be loaded.
 
-There is also a test through Test::Perl::Critic,
-enabled by setting the TEST_AUTHOR env variable.
+There is also a test through L<Test::Perl::Critic>,
+enabled by setting the C<TEST_AUTHOR> env variable.
 It is not useful for other people than me, the author.
 
 
-DEPENDENCIES
+=head1 DEPENDENCIES
 
-* For running:
-perl-5.8
-Algorithm::Annotate
-Carp
-Class::Spiffy
-DateTime
-DateTime::Format::ISO8601
-LWP::UserAgent
-Params::Validate
-Perl::Version
-Regexp::Common
-Readonly
-XML::Twig
+=head2 For running:
 
-* optional:
-LWPx::ParanoidAgent
+Perl 5.8,
+L<Algorithm::Annotate>,
+L<Carp>,
+L<Class::Spiffy>,
+L<DateTime>,
+L<DateTime::Format::ISO8601>,
+L<LWP::UserAgent>,
+L<Params::Validate>,
+L<Perl::Version>,
+L<Regexp::Common>,
+L<Readonly>,
+L<XML::Twig>
 
-* For testing, everything above and:
-Test::More
-Test::Exception
-Test::Without::Module
+=head2 optional:
 
-WHAT'S NEW
+L<LWPx::ParanoidAgent>
 
-0.0.2  2007-08-01
-       Made LWPx::ParanoidAgent an optional feature.
+=head2 For testing, everything above and:
+
+L<Test::More>,
+L<Test::Exception>,
+L<Test::Without::Module>
+
+=head1 WHAT'S NEW
+
+For details, see the F<Changes> file.
+
+=head2 0.0.3  2009-11-30
+
+Maintainance release, no features changed.
+
+=head2 0.0.2  2007-08-01
+
+Made L<LWPx::ParanoidAgent> an optional feature.
 
 
-COPYRIGHT AND LICENCE
+=head1 COPYRIGHT AND LICENCE
 
-Copyright (C) 2007, Lars Dɪᴇᴄᴋᴏᴡ
+Copyright © 2007-2009, Lars Dɪᴇᴄᴋᴏᴡ
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+it under the same terms as Perl 5.8.

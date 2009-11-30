@@ -22,7 +22,6 @@ requires        'DateTime'                  => 0;
 requires        'DateTime::Format::ISO8601' => 0;
 requires        'LWP::UserAgent'            => 0;
 requires        'Params::Validate'          => 0;
-requires        'Perl::Version'             => 0;
 requires        'Regexp::Common'            => 0;
 requires        'Readonly'                  => 0;
 requires        'XML::Twig'                 => 0;

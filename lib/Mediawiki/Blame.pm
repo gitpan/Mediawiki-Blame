@@ -1,6 +1,4 @@
 package Mediawiki::Blame;
-# $Revision: 8 $
-# $Date: 2007-08-01 15:01:36 +0200 (Mi, 01 Aug 2007) $
 use 5.008;
 use utf8;
 use strict;
@@ -14,10 +12,10 @@ use LWP::UserAgent qw();
 use Mediawiki::Blame::Revision qw();
 use Mediawiki::Blame::Line qw();
 use Params::Validate qw(validate_with SCALAR);
-use Perl::Version qw(); our $VERSION = Perl::Version->new('0.0.2')->stringify;
 use Regexp::Common qw(number URI);
 use Readonly qw(Readonly);
 use XML::Twig qw();
+our $VERSION = '0.0.3';
 
 field 'export';
 field 'page';
@@ -359,6 +357,8 @@ sub blame {
 1;
 __END__
 
+=encoding UTF-8
+
 =head1 NAME
 
 Mediawiki::Blame - see who is responsible for each line of page content
@@ -366,7 +366,7 @@ Mediawiki::Blame - see who is responsible for each line of page content
 
 =head1 VERSION
 
-This document describes Mediawiki::Blame version 0.0.2
+This document describes Mediawiki::Blame version 0.0.3
 
 
 =head1 SYNOPSIS
@@ -509,7 +509,7 @@ Core modules: L<Carp>
 
 CPAN modules: L<Algorithm::Annotate>, L<Class::Spiffy>, L<DateTime>,
 L<DateTime::Format::ISO8601>, L<LWPx::ParanoidAgent>, L<Params::Validate>,
-L<Perl::Version>, L<Regexp::Common>, L<Readonly>, L<XML::Twig>
+L<Regexp::Common>, L<Readonly>, L<XML::Twig>
 
 
 =head1 INCOMPATIBILITIES
@@ -526,11 +526,17 @@ C<bug-mediawiki-blame@rt.cpan.org>, or through the web interface at
 L<http://rt.cpan.org>.
 
 
-=head1 TODO
+=head1 TO DO
 
 =over
 
 =item * import offline XML dumps
+
+=item * restore tests against a local Mediawiki
+
+=item * migrate from L<Class::Spiffy> and L<Params::Validate> to L<Moose>
+
+=item * migrate author tests to L<Test::XT>
 
 =back
 
@@ -545,10 +551,10 @@ Lars Dɪᴇᴄᴋᴏᴡ  C<< <daxim@cpan.org> >>
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 2007, Lars Dɪᴇᴄᴋᴏᴡ C<< <daxim@cpan.org> >>.
+Copyright © 2007-2009, Lars Dɪᴇᴄᴋᴏᴡ C<< <daxim@cpan.org> >>.
 
 This module is free software; you can redistribute it and/or
-modify it under the same terms as Perl itself. See L<perlartistic>.
+modify it under the same terms as Perl 5.8.
 
 
 =head1 DISCLAIMER OF WARRANTY
@@ -576,6 +582,7 @@ SUCH DAMAGES.
 
 =head1 SEE ALSO
 
-L<Mediawiki::Blame::Revision>, L<Mediawiki::Blame::Line>
+The B<Levitation> project L<http://levit.at/ion> duplicates some features of
+this module.
 
-=encoding utf8
+L<Mediawiki::Blame::Revision>, L<Mediawiki::Blame::Line>
